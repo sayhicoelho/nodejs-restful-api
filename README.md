@@ -52,7 +52,7 @@ $ db.createUser({ user: 'admin', pwd: 'password', roles: [ 'dbOwner' ] })
 ```
 
 # Usage
-* Run the command `npm run start` to start the server with nodemon
+* Run the command `npm run start` to start the server with [nodemon](http://nodemon.io/)
 
 # License
 [MIT](LICENSE) license.
