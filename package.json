@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/sayhicoelho/nodejs-restful-api/issues"
   },
-  "homepage": "https://github.com/sayhicoelho/nodejs-restful-api#readme"
+  "homepage": "https://github.com/sayhicoelho/nodejs-restful-api#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
 }
