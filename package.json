@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-restful-api",
+  "version": "1.0.0",
+  "description": "My first Node.js RESTful API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sayhicoelho/nodejs-restful-api.git"
+  },
+  "keywords": [
+    "Node.js",
+    "REST",
+    "RESTful",
+    "API",
+    "Express.js",
+    "MongoDB"
+  ],
+  "author": "Renan Coelho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sayhicoelho/nodejs-restful-api/issues"
+  },
+  "homepage": "https://github.com/sayhicoelho/nodejs-restful-api#readme"
+}
