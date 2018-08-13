@@ -1,6 +1,7 @@
 .DS_Store
 *.log
 node_modules/
+.env
 
 # Editor directories and files
 .idea
