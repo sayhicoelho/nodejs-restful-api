@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/sayhicoelho/nodejs-restful-api#readme",
   "devDependencies": {
+    "dotenv-safe": "^6.0.0",
     "nodemon": "^1.18.3"
   },
   "dependencies": {
