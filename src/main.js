@@ -2,6 +2,7 @@ const dotenv = require('dotenv-safe')
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 const logger = require('morgan')
 const router = require('./router')
 const Task = require('./models/Task')
@@ -33,6 +34,7 @@ mongoose.connect(`mongodb://${db.user}:${db.pass}@${db.host}:${db.port}/${db.nam
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(logger('dev'))
+app.use(cors())
 
 router(app)
 
