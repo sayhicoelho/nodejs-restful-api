@@ -23,6 +23,14 @@ const db = {
   name: process.env.DB_NAME
 }
 
+if (app.get('env') === 'production') {
+  app.use((req, res, next) => {
+    const protocol = req.get('x-forwarded-proto')
+
+    protocol == 'https' ? next() : res.redirect(`https://${req.hostname}${req.url}`)
+  })
+}
+
 mongoose.Promise = Promise
 mongoose.connect(`mongodb://${db.user}:${db.pass}@${db.host}:${db.port}/${db.name}`, {  useNewUrlParser: true }).then(res => {
   console.log('Successfully connected')
