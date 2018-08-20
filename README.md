@@ -46,7 +46,7 @@ $ db.createUser({ user: 'root', pwd: 'password', roles: [ 'root' ] })
 * And lastly, close these two command prompts and restart the MongoDB service
 
 # Adding new database
-As MongoDB works on top of NoSQL document-oriented database, we do not need to create any database on our system.
+As MongoDB works on top of NoSQL document-oriented database, we do not need to create any database for our application.
 
 Whenever we need to start a new application with its database, we create an user and give to it the dbOwner role. So now, we need to go to the command prompt and type:
 
