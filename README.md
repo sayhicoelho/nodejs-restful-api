@@ -9,7 +9,7 @@ I have nothing to say yet. This is just a study project.
 ## MongoDB
 * Install [MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
 * On Windows, create a folder to store the `data` files (e.g `C:\Program Files\MongoDB\Server\4.0\data`)
-* Setup configuration security by editing the file `C:\Program Files\MongoDB\Server\4.0\bin\mongod.cfg` (Windows) or `/etc/mongod.conf` (Linux) adding the [YAML](http://yaml.org/) code bellow:
+* Add extra security by editing the file `C:\Program Files\MongoDB\Server\4.0\bin\mongod.cfg` (Windows) or `/etc/mongod.conf` (Linux) adding the [YAML](http://yaml.org/) code bellow:
 
 ``` YAML
 security:
