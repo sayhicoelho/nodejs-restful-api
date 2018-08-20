@@ -4,12 +4,13 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const logger = require('morgan')
-const router = require('./router')
-const Task = require('./models/Task')
-
-const app = express()
 
 dotenv.load()
+
+const models = require('./models')
+const router = require('./router')
+
+const app = express()
 
 const server = {
   port: process.env.PORT || 3000
@@ -25,9 +26,7 @@ const db = {
 
 if (app.get('env') === 'production') {
   app.use((req, res, next) => {
-    const protocol = req.get('x-forwarded-proto')
-
-    protocol == 'https' ? next() : res.redirect(`https://${req.hostname}${req.url}`)
+    return req.protocol == 'https' ? next() : res.redirect(`https://${req.hostname}${req.url}`)
   })
 }
 

@@ -2,43 +2,48 @@ const mongoose = require('mongoose')
 const Task = mongoose.model('Task')
 
 module.exports.index = (req, res) => {
-  Task.find({}, (err, data) => {
+  Task.find({ userId: req.user._id }).exec((err, tasks) => {
     if (err)
-      res.send(err)
-    res.json(data)
+      return res.status(400).send(err)
+    return res.json(tasks)
   })
 }
 
 module.exports.store = (req, res) => {
-  let task = new Task(req.body)
+  const data = {
+    name: req.body.name,
+    description: req.body.description,
+    status: req.body.status,
+    userId: req.user._id
+  }
 
-  task.save((err, data) => {
+  let task = new Task(data)
+
+  task.save((err, task) => {
     if (err)
-      res.send(err)
-    res.json(data)
+      return res.status(400).send(err)
+    return res.json(task)
   })
 }
 
 module.exports.show = (req, res) => {
-  Task.findById(req.params.id, (err, data) => {
-    if (err)
-      res.send(err)
-    res.json(data)
-  })
+  return res.json(res.locals.task)
 }
 
 module.exports.update = (req, res) => {
-  Task.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, data) => {
+  res.locals.task.name = req.body.name
+  res.locals.task.description = req.body.description
+  res.locals.task.status = req.body.status
+
+  res.locals.task.save((err, task) => {
     if (err)
-      res.send(err)
-    res.json(data)
+      return res.status(400).send(err)
+    return res.json(task)
   })
 }
 
 module.exports.destroy = (req, res) => {
-  Task.remove({ _id: req.params.id }, (err, data) => {
-    if (err)
-      res.send(err)
-    res.json({ message: 'Task successfully deleted.'})
+  res.locals.task.remove(() => {
+    return res.json({ message: 'TaskSuccessfullyDeleted'})
   })
 }

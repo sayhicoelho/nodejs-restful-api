@@ -1,22 +1,22 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const TaskSchema = new Schema({
+const SessionSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
     required: true
   },
-  name: {
+  token: {
     type: String,
     required: true
   },
-  description: {
+  userAgent: {
     type: String,
+    required: true
   },
-  status: {
+  ip: {
     type: String,
-    enum: ['pending', 'ongoing', 'completed'],
-    default: 'pending'
+    required: true
   },
   createdAt: {
     type: Date,
@@ -24,4 +24,4 @@ const TaskSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('Task', TaskSchema)
+module.exports = mongoose.model('Session', SessionSchema)
