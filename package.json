@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/main.js",
+    "worker": "nodemon src/worker.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -32,6 +33,7 @@
   },
   "dependencies": {
     "bcrypt": "^3.0.0",
+    "bee-queue": "^1.2.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "jwt-simple": "^0.5.1",

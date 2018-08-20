@@ -2,6 +2,11 @@
 I have nothing to say yet. This is just a study project.
 
 # Setup
+## Redis
+* [Linux](https://redis.io/topics/quickstart)
+* [Windows](https://github.com/tporadowski/redis/releases)
+
+## MongoDB
 * Install [MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
 * On Windows, create a folder to store the `data` files (e.g `C:\Program Files\MongoDB\Server\4.0\data`)
 * Setup configuration security by editing the file `C:\Program Files\MongoDB\Server\4.0\bin\mongod.cfg` (Windows) or `/etc/mongod.conf` (Linux) adding the [YAML](http://yaml.org/) code bellow:
@@ -52,6 +57,7 @@ $ db.createUser({ user: 'admin', pwd: 'password', roles: [ 'dbOwner' ] })
 ```
 
 # Usage
+* Run the command `npm run worker` to start the queue worker with [bee-queue](https://github.com/bee-queue/bee-queue)
 * Run the command `npm run start` to start the server with [nodemon](http://nodemon.io/)
 
 # License

@@ -1,11 +1,13 @@
 const mongoose = require('mongoose')
 const moment = require('moment')
+const Queue = require('bee-queue')
 const utils = require('../utils')
 const transporter = require('../utils/mail')
 const User = mongoose.model('User')
 const Session = mongoose.model('Session')
 const AccountConfirmation = mongoose.model('AccountConfirmation')
 const PasswordReset = mongoose.model('PasswordReset')
+const queue = new Queue('email')
 
 module.exports.login = (req, res) => {
   const criteria = { email: req.body.email }
@@ -61,17 +63,14 @@ module.exports.register = (req, res) => {
     let accountConfirmation = new AccountConfirmation({ token, userId })
 
     accountConfirmation.save(() => {
-      const mailOptions = {
+      const job = queue.createJob({
         from: process.env.MAIL_FROM,
         to: user.email,
         subject: 'Almost there!',
         html: `Please <strong><a href="${req.protocol}://${req.hostname}/confirm/${token}">click here</a></strong> to confirm your account.`
-      }
+      })
 
-      transporter.sendMail(mailOptions, (err, info) => {
-        if (err)
-          return res.status(500).send(err)
-
+      job.retries(2).save().then(job => {
         return res.json({ message: 'TokenSent' })
       })
     })
@@ -134,17 +133,14 @@ module.exports.sendPasswordResetLink = (req, res) => {
     let passwordReset = new PasswordReset({ token, userId, expiresAt })
 
     passwordReset.save(() => {
-      const mailOptions = {
+      const job = queue.createJob({
         from: process.env.MAIL_FROM,
         to: user.email,
         subject: 'Password recovery',
         html: `Please <strong><a href="${req.protocol}://${req.hostname}/password/reset/${token}">click here</a></strong> to reset your password.`
-      }
+      })
 
-      transporter.sendMail(mailOptions, (err, info) => {
-        if (err)
-          return res.status(500).send(err)
-
+      job.retries(2).save().then(job => {
         return res.json({ message: 'TokenSent' })
       })
     })
