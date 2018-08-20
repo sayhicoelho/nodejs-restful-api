@@ -2,6 +2,8 @@
 I have nothing to say yet. This is just a study project.
 
 # Setup
+Step by step to prepare the environment.
+
 ## Redis
 * [Linux](https://redis.io/topics/quickstart)
 * [Windows](https://github.com/tporadowski/redis/releases)
