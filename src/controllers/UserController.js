@@ -23,10 +23,8 @@ module.exports.show = (req, res) => {
 
 module.exports.update = (req, res) => {
   const data = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    phone: req.body.phone,
+    name: req.body.name,
+    email: req.body.email
   }
 
   const options = {
