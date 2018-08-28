@@ -31,7 +31,7 @@ if (app.get('env') === 'production') {
 }
 
 mongoose.Promise = Promise
-mongoose.connect(`mongodb://${db.user}:${db.pass}@${db.host}:${db.port}/${db.name}`, {  useNewUrlParser: true }).then(res => {
+mongoose.connect(`mongodb://${db.user}:${db.pass}@${db.host}:${db.port}/${db.name}`, { useNewUrlParser: true }).then(res => {
   console.log('Successfully connected')
 }).catch(err => {
   console.error(err.message)
