@@ -28,7 +28,7 @@
   "homepage": "https://github.com/sayhicoelho/nodejs-restful-api#readme",
   "devDependencies": {
     "dotenv-safe": "^6.0.0",
-    "morgan": "^1.9.0",
+    "morgan": "^1.9.1",
     "nodemon": "^1.18.3"
   },
   "dependencies": {
@@ -38,7 +38,7 @@
     "express": "^4.16.3",
     "jwt-simple": "^0.5.1",
     "moment": "^2.22.2",
-    "mongoose": "^5.2.7",
+    "mongoose": "^5.4.13",
     "mongoose-validator": "^2.1.0",
     "nodemailer": "^4.6.8"
   }
